@@ -82,7 +82,7 @@ public class SubscriberController {
     }
 
     @Data
-    @AllArgsConstructor
+ 
     public static class ApiResponse {
         private String message;
 
