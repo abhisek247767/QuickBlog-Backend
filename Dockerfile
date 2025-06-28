@@ -1,23 +1,18 @@
-# ---- STAGE 1: Build the application ----
+# Stage 1: Build
 FROM maven:3.9-eclipse-temurin-17 AS build
 
 WORKDIR /app
-
-# Copy all project files
 COPY . .
 
-# ---- STAGE 2: Run the application ----
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run
 FROM eclipse-temurin:17-jdk
 
-# Set environment variables
-ENV JAVA_OPTS="-Xms256m -Xmx512m"
-
-# Create app directory
 WORKDIR /app
 
-# Copy jar from build stage
 COPY --from=build /app/target/*.jar app.jar
 
+EXPOSE 8080
 
-# Start the application
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
