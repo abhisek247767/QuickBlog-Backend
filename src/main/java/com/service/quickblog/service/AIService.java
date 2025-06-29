@@ -56,7 +56,7 @@ public class AIService {
             ObjectMapper mapper=new ObjectMapper();
             JsonNode rootNode =mapper.readTree(aiResponse);
             String summary = rootNode.at("/candidates/0/content/parts/0/text").asText()
-            			.replaceAll("(?i)^(<p>(\\s|&nbsp;|<br\\s*/?>)*</p>\\s*)+", "") 
+//            			.replaceAll("(?i)^(<p>(\\s|&nbsp;|<br\\s*/?>)*</p>\\s*)+", "") 
                         .replaceAll("\\*", "") 
                         .replaceAll("#", "")  
                         .replaceAll("_", ""); 

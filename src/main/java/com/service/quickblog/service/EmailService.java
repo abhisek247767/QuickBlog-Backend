@@ -39,10 +39,10 @@ public class EmailService {
         String blogLink = String.format(blogEmailUrl, blog.getId()); 
 
         // Create the email subject and body
-        String subject = "New Blog Post Published: " + blog.getTitle();
+        String subject = "🚀 New Blog Post Published: " + blog.getTitle();
         String body = String.format(
             "Hello Blog Subscriber,\n\nA new blog post titled '%s' has just been published!\n\n" +
-            "Read it here: %s\n\n" +
+            "👉 Read it here: %s\n\n" +
             "Happy reading!\n\n" +
             "The QuickBlog Team",
             blog.getTitle(), blogLink 
